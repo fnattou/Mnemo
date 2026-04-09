@@ -1,6 +1,6 @@
-# .aicontext Specification
+# Mnemo
 
-AI agent external memory format. Optimized for token efficiency.
+Token-efficient external memory format for AI agents, using `.aicontext` files.
 
 ---
 
