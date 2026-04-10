@@ -1,4 +1,4 @@
-# Mnemo
+# Lean-Mnemo
 
 Token-efficient external memory format for AI agents, using `.aicontext` files.
 
