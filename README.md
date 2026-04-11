@@ -10,6 +10,7 @@ Token-efficient external memory format for AI agents, using `.aicontext` files.
 2. **Hierarchical structure** — Each folder has its own `index.aicontext`; don't flatten to root
 3. **Token-based abbreviations** — Only multi-token terms (3+ tokens) worth abbreviating; dictionary stored in `dict.aicontext`
 4. **Merge updates** — Keep one entry per topic file; update with latest date instead of appending
+5. **Concise writing** — Bullets, not paragraphs; remove filler
 
 ---
 
@@ -88,13 +89,24 @@ DTL: database transaction logging
 
 ---
 
-## Token Efficiency Strategy
+## Mnemo vs RAG
 
-1. **Hierarchical indices** → Don't load all files at once; drill down as needed
-2. **One topic per file** → Clear boundaries, no redundant scanning
-3. **Concise writing** → Bullets, not paragraphs; remove filler
-4. **Smart abbreviations** → Only multi-token terms; keep dictionary minimal
-5. **Merge updates** → No duplicate entries; latest state only
+RAG optimizes for **scale**. Mnemo optimizes for **density**.
+
+| | Mnemo | RAG |
+|---|---|---|
+| Best for | ~100 topics, deterministic recall | 1000+ documents, fuzzy search |
+| Token cost | Low — hand-curated bullets | Medium — raw chunks passed as-is |
+| Setup | Text editor only | Vector DB + embedding model |
+| Tuning | None | Chunk size, overlap, retrieval K |
+| Recall guarantee | ✅ Explicit file read | ❌ Search can miss |
+| Offline | ✅ | ❌ API required |
+
+**RAG's hidden costs:** vector DB ops, embedding API fees, chunk strategy tuning, retrieval quality evaluation.
+
+**Use Mnemo when** you have a bounded set of decisions, rules, or context that must be reliably recalled — and you want zero infrastructure.
+
+**Use RAG when** you have large unstructured corpora and fuzzy search is acceptable.
 
 ---
 
