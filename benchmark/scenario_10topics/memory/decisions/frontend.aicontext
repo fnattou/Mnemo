@@ -1,0 +1,7 @@
+2026-04-12: React 18 with TypeScript and Zustand state management
+  - Zustand replaces Redux: minimal boilerplate, no provider nesting, DevTools-compatible derived selectors
+  - Store structure mirrors domain (TaskStore, FilterStore, UserStore); async operations via middleware
+  - Next.js enables SSR for initial page load optimization and SEO (shared task links)
+  - Component hierarchy: pages (route-level) > containers (business logic) > presentational (pure UI)
+  - Vite + esbuild toolchain; code splitting by route reduces main bundle 60%; ESLint enforces hooks rules
+  - Controlled form inputs enable real-time validation; error boundaries prevent white screens; a11y via semantic HTML

@@ -1,0 +1,8 @@
+2026-04-12: GitHub Flow + conventional commits + automated linting for quality and knowledge capture
+  - Mandatory 2 approvals (1 lead, 1 any) via async PR comments; 24h SLA; stale approvals dismissible after addressing feedback
+  - Feature branches off main (feature/*, bugfix/*); squash merges preserve clean history; auto-delete post-merge
+  - Conventional commits: feat(scope): desc; automated changelog + git log --grep searchability enforced via hook
+  - ESLint + Prettier via pre-commit hooks; CI re-verification catches manual overrides
+  - ADRs document major decisions (auth.md, db-schema.md); problem, solution, alternatives, consequences; living documents marked superseded
+  - Semantic versioning; automated bumping from commits; weekly releases + hotfixes bypass queue
+  - Onboarding: clone > npm run dev > read ADRs > first contribution > pair on PR review

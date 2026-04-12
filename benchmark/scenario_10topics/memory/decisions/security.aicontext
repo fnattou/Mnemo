@@ -1,0 +1,8 @@
+2026-04-12: Defense-in-depth: input validation, CSRF protection, bcrypt passwords, dependency auditing
+  - Server-side whitelist validation mandatory (no client-side trust); parameterized queries + ORM default-safe vs SQL injection
+  - CSRF: SameSite=Strict cookies + token validation on POST/PATCH/DELETE; double-submit pattern detects tampering
+  - bcrypt cost 12 (~100ms hash); minimum 12-char passwords checked against Pwned Passwords API during signup
+  - npm audit on every commit; Dependabot auto-PRs security updates (reviewed within 48h); lockfiles version-controlled
+  - HTTPS enforcement via HSTS; RDS encryption at rest + TLS in-transit; secrets rotation quarterly; private RDS subnet isolated
+  - Threat mitigations: CloudFlare WAF blocks DDoS; optional 2FA (TOTP); suspicious login verification; audit logs capture all data access
+  - Non-negotiables: no password/token logging; PII accessed via RBAC; security headers (CSP, X-Frame-Options, X-Content-Type-Options)

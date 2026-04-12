@@ -1,0 +1,7 @@
+2026-04-12: PostgreSQL with JSONB flexible metadata storage
+  - Strong ACID guarantees chosen over NoSQL; prevents subtle distributed consistency bugs
+  - JSONB columns (settings, metadata) provide flexibility without sacrificing schema strictness
+  - Composite indexes (project_id, status, due_date) + GIN on JSONB + partial indexes on active records
+  - Flyway migrations version-controlled; blue-green deployment enables zero-downtime schema changes
+  - PgBouncer connection pooling mandatory; VACUUM jobs prevent table bloat from UPDATE-heavy workloads
+  - Scales to <10M records efficiently; sharding deferred until 100M+

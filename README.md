@@ -110,6 +110,26 @@ RAG optimizes for **scale**. Mnemo optimizes for **density**.
 
 ---
 
+## Token Efficiency
+
+Scenario: 10 project topics (auth, DB schema, API design, etc.), equivalent to ~10 typical wiki pages.
+
+| What you load | Tokens | vs. raw docs |
+|---|---|---|
+| Raw Markdown docs (all) | ~4,924 | 100% |
+| Mnemo — all files | ~1,474 | 30% |
+| Mnemo — index only | ~13 | <1% |
+| Mnemo — index + 1 topic | ~133 | 3% |
+
+Compaction is achieved through:
+- **Removing prose**: Keep only decision bullets, remove background paragraphs
+- **Two-level access**: Index acts as a table of contents; load full topics only when needed
+- **Selective reference**: Most queries need only index + 1–2 topic files, not all 12
+
+> See [benchmark/scenario_10topics/](benchmark/scenario_10topics/) for full scenario data (raw/ and memory/ directories).
+
+---
+
 ## saveMemory Skill Implementation
 
 Claude reads referenced context, extracts key insights, determines category/topic, writes to appropriate file with timestamp, updates all affected indices.

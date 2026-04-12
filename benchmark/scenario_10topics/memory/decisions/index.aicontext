@@ -1,0 +1,10 @@
+file: auth.aicontext | JWT with Redis-backed token revocation for stateless API auth
+file: db-schema.aicontext | PostgreSQL with JSONB for flexibility without sacrificing ACID
+file: api-design.aicontext | REST with strict pagination and rate limiting
+file: frontend.aicontext | React 18 with TypeScript and Zustand state management
+file: testing.aicontext | Test pyramid: 70% unit, 20% integration, 10% e2e coverage
+file: deploy.aicontext | AWS ECS Fargate with GitHub Actions blue-green deployment
+file: monitoring.aicontext | CloudWatch logging, Prometheus metrics, PagerDuty alerting
+file: security.aicontext | Defense-in-depth: validation, CSRF, bcrypt, dependency auditing
+file: performance.aicontext | <200ms p95 latency via Redis caching, N+1 elimination, CDN
+file: team-conventions.aicontext | GitHub Flow, conventional commits, linting, ADRs
