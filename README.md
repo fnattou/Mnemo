@@ -114,17 +114,29 @@ RAG optimizes for **scale**. Mnemo optimizes for **density**.
 
 Scenario: 10 project topics (auth, DB schema, API design, etc.), equivalent to ~10 typical wiki pages.
 
+### Without dict.aicontext (bullets only)
+
 | What you load | Tokens | vs. raw docs |
 |---|---|---|
-| Raw Markdown docs (all) | ~4,924 | 100% |
-| Mnemo — all files | ~1,474 | 30% |
+| Raw Markdown docs (all) | ~2,920 | 100% |
+| Mnemo — all files | ~929 | 31.8% |
 | Mnemo — index only | ~13 | <1% |
-| Mnemo — index + 1 topic | ~133 | 3% |
+| Mnemo — index + 1 topic | ~133 | 4.5% |
+
+### With dict.aicontext (multi-token abbreviations)
+
+| What you load | Tokens | vs. raw docs |
+|---|---|---|
+| Raw Markdown docs (all) | ~2,920 | 100% |
+| Mnemo — all files + dict | ~881 | 30.2% |
+| Mnemo — index only | ~13 | <1% |
+| Mnemo — index + 1 topic + dict | ~194 | 6.6% |
 
 Compaction is achieved through:
 - **Removing prose**: Keep only decision bullets, remove background paragraphs
 - **Two-level access**: Index acts as a table of contents; load full topics only when needed
-- **Selective reference**: Most queries need only index + 1–2 topic files, not all 12
+- **Multi-token abbreviations**: Optional `dict.aicontext` replaces repeated 3+ token phrases (JWT, CI/CD, etc.) for additional 5–8% savings
+- **Selective reference**: Most queries need only index + 1 topic (133–194 tokens total depending on dict usage)
 
 > See [benchmark/scenario_10topics/](benchmark/scenario_10topics/) for full scenario data (raw/ and memory/ directories).
 
