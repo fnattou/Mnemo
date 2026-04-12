@@ -87,6 +87,8 @@ DTL: database transaction logging
   - Are domain-specific (reused across files)
 - Load first when reading memory files
 
+**Note:** At small-to-medium scale (~100 topics), abbreviations yield modest savings (~5%) with meaningful maintenance overhead. The primary compaction gains come from prose removal and two-level access, not abbreviations. Skip `dict.aicontext` unless your memory grows large enough that the savings justify the upkeep.
+
 ---
 
 ## Mnemo vs RAG
@@ -122,11 +124,11 @@ Scenario: 10 project topics (auth, DB schema, API design, etc.), equivalent to ~
 | Mnemo — index only | ~13 | <1% |
 | Mnemo — index + 1 topic | ~194 | 6.6% |
 
-Compaction is achieved through:
-- **Removing prose**: Keep only decision bullets, remove background paragraphs
+The two main drivers of compaction:
+- **Removing prose**: Keep only decision bullets, remove background paragraphs (~68% reduction)
 - **Two-level access**: Index acts as a table of contents; load full topics only when needed
-- **Multi-token abbreviations**: Optional `dict.aicontext` replaces repeated phrases
-- **Selective reference**: Most queries need only index + 1 topic file
+
+`dict.aicontext` (abbreviations) adds a further ~5% on top, but at small scale the maintenance overhead rarely justifies it.
 
 > See [benchmark/scenario_10topics/](benchmark/scenario_10topics/) for full scenario data (raw/ and memory/ directories).
 
