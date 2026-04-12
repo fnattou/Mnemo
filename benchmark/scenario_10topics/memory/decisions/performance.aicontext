@@ -1,7 +1,7 @@
-2026-04-12: Target <200ms p95 latency via Redis caching, N+1 elimination, CloudFront CDN
-  - Redis cache-aside: 5-min TTL user data, 15-min TTL project metadata; immediate invalidation on write
+2026-04-12: <200ms p95 latency via RCS, N+1 elimination, CF
+  - RCS: 5-min TTL user data, 15-min TTL project metadata; immediate invalidation on write
   - N+1 prevention via eager loading (JOINs) enforced by EXPLAIN ANALYZE on PRs; query complexity threshold enforcement
-  - CloudFront CDN: S3 origin for static assets (versioned with content hash), ECS LB for dynamic; index.html no-cache, assets max-age=31536000
+  - CF: S3 origin for static assets (versioned with content hash), ECS LB for dynamic; index.html no-cache, assets max-age=31536000
   - Page load targets: TTFB <100ms, FCP <1.5s, LCP <2.5s, CLS <0.1 via critical CSS, lazy-loaded images, font-display=swap
-  - Real User Monitoring (RUM) and synthetic k6 monitoring; budget alerts fail deployment if bundle > 15% increase
+  - RUM and synthetic k6 monitoring; budget alerts fail deployment if bundle > 15% increase
   - Database pooling (min 5, max 20); microservice timeouts (2s to auth-service) prevent cascading failures

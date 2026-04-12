@@ -1,6 +1,6 @@
-2026-04-12: AWS ECS Fargate with GitHub Actions blue-green deployment
+2026-04-12: AEF with GHA BGD
   - Fargate eliminates EC2 node management; per-task billing scales with usage not provisioned capacity
-  - GitHub Actions workflow: build > test > security scan (Trivy) > blue-green deploy > smoke tests
+  - GHA workflow: build > test > security scan (Trivy) > BGD > smoke tests
   - Canary releases: 5% traffic 5 minutes before full rollout; circuit breaker auto-rolls back after 10 consecutive 5xx errors
   - Feature flags for critical features enable deployment without code changes; database backward compatibility enforced
   - Environment strategy: per-developer dev (auto-delete 7 days), staging mirrors production, production multi-AZ with gradual traffic shift (10% → 50% → 100%)

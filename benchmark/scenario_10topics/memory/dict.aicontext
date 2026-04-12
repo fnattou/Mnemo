@@ -1,0 +1,18 @@
+# Multi-token abbreviations (3+ tokens, 3+ appearances)
+
+GHA: GitHub Actions
+BGD: blue-green deployment
+CC: conventional commits
+RL: rate limiting
+AEF: AWS ECS Fargate
+PWJB: PostgreSQL with JSONB
+R18TS: React 18 with TypeScript
+ZSM: Zustand state management
+PA: PagerDuty alerting
+PM: Prometheus metrics
+CF: CloudFront CDN
+TP: Test pyramid
+RCS: Redis caching strategy
+JWT-R: JWT with Redis
+SJA: stateless JWT approach
+RUM: Real User Monitoring

@@ -1,4 +1,4 @@
-2026-04-12: CloudWatch centralized logging, Prometheus metrics, PagerDuty alerting
+2026-04-12: CloudWatch logging, PM, PA
   - Structured JSON logging (timestamp, level, service, user_id, duration_ms, error) prevents brittle parsing
   - Log retention: 7 days debug, 30 days errors/warnings; metrics track p50/p95/p99 latency, throughput, error rates
   - Alert thresholds: P99 latency > 2s, error rate > 1%, memory > 85% (auto-scale), DB CPU > 75% (manual review)

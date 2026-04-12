@@ -1,7 +1,7 @@
-2026-04-12: REST with strict pagination and rate limiting
+2026-04-12: REST with strict pagination and RL
   - Fixed endpoints over GraphQL; avoids field-level authorization complexity and client-driven query unpredictability
   - Offset-limit pagination (default 20, max 100) + keyset pagination for high-offset queries preventing N² complexity
-  - Rate limiting: 1000 req/min per user, 100 req/min per IP; 50 req/10sec burst allowance
+  - RL: 1000 req/min per user, 100 req/min per IP; 50 req/10sec burst allowance
   - Versioning in URL path (v1, v2) for cacheability; 6-month minimum migration period before deprecation
   - Payload wrapper: `{data, meta}` for responses; `{error: {code, message, details}}` for errors
   - X-Request-ID propagated through stack; webhook signatures prevent spoofing

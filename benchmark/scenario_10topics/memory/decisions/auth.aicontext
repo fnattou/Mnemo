@@ -1,7 +1,7 @@
-2026-04-12: JWT with Redis-backed token revocation
-  - Hybrid approach: stateless JWT (15min access, 7day refresh) + Redis blacklist for immediate logout
-  - RS256 asymmetric signing; public keys distributed across API servers enabling stateless validation
+2026-04-12: JWT-R for immediate logout support
+  - Hybrid approach: SJA (15min access, 7day refresh) + Redis blacklist for immediate logout
+  - RS256 asymmetric signing; public keys distributed across API servers enabling SJA validation
   - Eliminates sticky-session routing complexity in distributed systems
-  - Redis stores only revoked tokens with TTL; minimal memory overhead vs pure stateless JWT
+  - Redis stores only revoked tokens with TTL; minimal memory overhead vs pure SJA
   - Clock skew < 1min enforced via NTP; refresh token rotation on each use prevents replay attacks
   - HTTPS mandatory; machine-to-machine auth uses separate API keys, never JWT

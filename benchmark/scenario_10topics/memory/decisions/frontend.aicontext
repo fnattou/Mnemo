@@ -1,5 +1,5 @@
-2026-04-12: React 18 with TypeScript and Zustand state management
-  - Zustand replaces Redux: minimal boilerplate, no provider nesting, DevTools-compatible derived selectors
+2026-04-12: R18TS and ZSM
+  - ZSM replaces Redux: minimal boilerplate, no provider nesting, DevTools-compatible derived selectors
   - Store structure mirrors domain (TaskStore, FilterStore, UserStore); async operations via middleware
   - Next.js enables SSR for initial page load optimization and SEO (shared task links)
   - Component hierarchy: pages (route-level) > containers (business logic) > presentational (pure UI)

@@ -1,4 +1,4 @@
-2026-04-12: Test pyramid: 70% unit, 20% integration, 10% e2e
+2026-04-12: TP: 70% unit, 20% integration, 10% e2e
   - Unit tests (Jest) catch logic instantly (< 100ms suite); integration tests verify service boundaries; e2e (Playwright) for critical workflows only
   - Coverage targets: 80% backend controllers, 85% business logic, 70% database queries, 60% components, 50% integration flows
   - Factory functions generate realistic fixtures; isolated database per test via transaction rollback (200ms teardown)
